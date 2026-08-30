@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エピソード｜やっぱり猫が好き 非公式ファンサイト</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html"><span class="logo-small">UNOFFICIAL FAN SITE</span><span class="logo-main">やっぱり猫が好き</span></a>
+  <button class="menu-button" aria-label="メニューを開く">☰</button>
+  <nav class="global-nav"><a href="about-show.html">番組を振り返る</a><a class="active" href="episodes.html">エピソード</a><a href="fanfiction.html">勝手に猫が好き</a><a href="about.html">このサイトについて</a></nav>
+</header>
+<main class="page-width">
+  <div class="page-title"><p class="eyebrow">EPISODES</p><h1>エピソードを探す。</h1><p>スプレッドシートに追加したデータから、自動で一覧を作ります。</p></div>
+  <div class="filter-bar" id="episodeFilters"><button class="filter active" data-filter="all">すべて</button></div>
+  <div class="loading-message" id="episodeStatus">読み込み中...</div>
+  <div class="episode-grid" id="episodeGrid"></div>
+</main>
+<footer class="site-footer"><p>非公式ファンサイト / FAN MADE</p></footer>
+<script src="config.js"></script><script src="data.js"></script><script src="script.js"></script>
+</body></html>
