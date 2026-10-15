@@ -12,5 +12,5 @@ window.SITE_CONFIG = {
 
   // アクセスカウンター用Google Apps Script WebアプリURL
   // GASをデプロイ後、末尾が /exec のURLを貼り付けてください。
-  ACCESS_COUNTER_URL: "PASTE_YOUR_GAS_WEB_APP_URL_HERE"
+  ACCESS_COUNTER_URL: "https://script.google.com/macros/s/AKfycby1gNvrqgfr8wrGFBctPzPWOXbTXN6jf6xH07lMNbp0Xdh1JhiPX1cW2p30dhs6FE6N/exec"
 };

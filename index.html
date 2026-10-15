@@ -52,10 +52,6 @@
           <div class="coffee-table"></div>
         </div>
         <p class="visual-caption">三姉妹と猫のいる、いつもの部屋。</p>
-        <div class="hero-counter" aria-live="polite">
-          <span class="hero-counter-label">YOU ARE CAT LOVER No.</span>
-          <strong id="accessCounter" class="hero-counter-number">—</strong>
-        </div>
       </div>
     </section>
 
@@ -136,7 +132,16 @@
       </div>
     </section>
   </main>
-<footer class="site-footer">
+
+  <section class="access-counter-wrap" aria-label="アクセスカウンター">
+    <div class="access-counter">
+      <span class="access-counter-label">YOU ARE CAT LOVER No.</span>
+      <strong id="accessCount" class="access-counter-number">-------</strong>
+      <span id="accessCounterStatus" class="access-counter-status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <footer class="site-footer">
     <p>「やっぱり猫が好き」を愛する個人が運営する非公式ファンサイトです。</p>
     <p>番組・出演者・制作会社等とは関係ありません。</p>
   </footer>
