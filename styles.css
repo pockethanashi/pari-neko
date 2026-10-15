@@ -177,6 +177,24 @@ button { font: inherit; }
   box-shadow: 0 72px rgba(70,55,40,.12);
 }
 
+.hero-photo-frame {
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+  border: 10px solid #5a4030;
+  background: #ddd;
+  box-shadow: var(--shadow);
+}
+
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
 .sofa {
   position: absolute;
   left: 13%;
@@ -725,6 +743,9 @@ button { font: inherit; }
   }
   .hero-visual { order: -1; }
   .room-frame { height: 300px; }
+  .hero-photo-frame {
+    height: 300px;
+  }
   .two-paths,
   .episode-grid { grid-template-columns: 1fr; }
   .essay-grid { grid-template-columns: 1fr; }
@@ -747,6 +768,10 @@ button { font: inherit; }
   .hero { width: calc(100% - 28px); min-height: 0; }
   .hero h1 { font-size: 2.7rem; }
   .room-frame { height: 240px; border-width: 8px; }
+  .hero-photo-frame {
+    height: 240px;
+    border-width: 8px;
+  }
   .feature-card { padding: 26px; min-height: 0; }
   .section-block { margin-top: 70px; }
   .character-grid,
