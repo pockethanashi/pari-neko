@@ -779,3 +779,63 @@ button { font: inherit; }
   color: var(--muted);
   font-size: .88rem;
 }
+
+/* Access counter */
+.access-counter-wrap {
+  width: min(1120px, calc(100% - 40px));
+  margin: 72px auto -48px;
+  display: flex;
+  justify-content: center;
+}
+
+.access-counter {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  gap: 8px 14px;
+  padding: 15px 20px 13px;
+  border: 1px solid var(--line);
+  background: rgba(255,253,248,.78);
+  box-shadow: 0 8px 24px rgba(50,43,34,.04);
+  text-align: center;
+}
+
+.access-counter-label {
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.access-counter-number {
+  min-width: 7ch;
+  color: var(--red);
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+}
+
+.access-counter-status {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+@media (max-width: 560px) {
+  .access-counter-wrap {
+    width: calc(100% - 28px);
+    margin-top: 54px;
+  }
+
+  .access-counter {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    width: 100%;
+  }
+
+  .access-counter-status {
+    margin-top: 4px;
+  }
+}
+

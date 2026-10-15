@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStoryList();
   initStoryPage();
   initReadingToggle();
+  initAccessCounter();
 });
 
 function initMenu() {
@@ -95,3 +96,62 @@ function initReadingToggle() {
 function resetVerticalScroll(el) {
   requestAnimationFrame(() => { el.scrollLeft = el.scrollWidth; });
 }
+
+// ==============================
+// Access counter
+// 1 browser = 1 count per Japan calendar day.
+// The daily guard is stored in localStorage.
+// ==============================
+async function initAccessCounter() {
+  const countEl = document.getElementById("accessCount");
+  if (!countEl) return; // Count only on pages that contain the counter (currently index.html).
+
+  const statusEl = document.getElementById("accessCounterStatus");
+  const endpoint = String(window.SITE_CONFIG?.ACCESS_COUNTER_URL || "").trim();
+  if (!endpoint || endpoint.includes("PASTE_YOUR_GAS")) {
+    if (statusEl) statusEl.textContent = "カウンター設定前";
+    return;
+  }
+
+  const today = getJapanDateKey();
+  const storageKey = "yappari-neko-access-counted-date";
+  let alreadyCounted = false;
+  try {
+    alreadyCounted = localStorage.getItem(storageKey) === today;
+  } catch (_) {
+    // If localStorage is unavailable, the page still works; GAS will simply receive a count request.
+  }
+
+  try {
+    const url = new URL(endpoint);
+    url.searchParams.set("mode", alreadyCounted ? "read" : "count");
+    url.searchParams.set("date", today);
+    url.searchParams.set("_", Date.now().toString()); // Avoid cached responses.
+
+    const res = await fetch(url.toString(), { method: "GET", cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!data || data.ok !== true) throw new Error(data?.error || "invalid response");
+
+    countEl.textContent = Number(data.total || 0).toLocaleString("ja-JP");
+
+    if (!alreadyCounted && data.counted === true) {
+      try { localStorage.setItem(storageKey, today); } catch (_) {}
+    }
+    if (statusEl) statusEl.textContent = alreadyCounted ? "本日はカウント済み" : "ご訪問ありがとうございます";
+  } catch (err) {
+    console.warn("Access counter error:", err);
+    if (statusEl) statusEl.textContent = "カウンターを取得できませんでした";
+  }
+}
+
+function getJapanDateKey() {
+  // en-CA yields YYYY-MM-DD, while timeZone fixes the boundary to Japan time.
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date());
+}
+
