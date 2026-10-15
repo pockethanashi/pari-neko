@@ -133,6 +133,7 @@ async function initAccessCounter() {
     const data = await res.json();
     if (!data || data.ok !== true) throw new Error(data?.error || "invalid response");
 
+    countEl.classList.remove("loading");
     countEl.textContent = Number(data.total || 0).toLocaleString("ja-JP");
 
     if (!alreadyCounted && data.counted === true) {

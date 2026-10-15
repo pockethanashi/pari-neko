@@ -888,3 +888,25 @@ button { font: inherit; }
     font-size: 2.1rem;
   }
 }
+
+
+/* Access counter loading state */
+.hero-counter-number.loading {
+  color: var(--muted);
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  animation: counterLoadingPulse 1.3s ease-in-out infinite;
+}
+
+@keyframes counterLoadingPulse {
+  0%, 100% { opacity: .42; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-counter-number.loading {
+    animation: none;
+  }
+}
