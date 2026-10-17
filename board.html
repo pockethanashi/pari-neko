@@ -29,14 +29,14 @@
       <h1>みんなの猫好き掲示板</h1>
       <p>
         「やっぱり猫が好き」のこと、好きな回や登場人物のこと、
-        「勝手に猫が好き」の感想など。ファンの皆さまと話せる掲示板です。お気軽にご参加ください。
+        「勝手に猫が好き」の感想など。のんびり話せる掲示板です。
       </p>
     </section>
 
     <section class="board-notice">
       <strong>投稿について</strong>
       <p>
-        投稿は管理人確認後に掲載されます。個人情報・誹謗中傷・宣伝目的の投稿などは掲載しない場合がありますのでご了承ください。
+        投稿は管理人確認後に掲載されます。個人情報・誹謗中傷・宣伝目的の投稿などは掲載しない場合があります。
       </p>
     </section>
 
@@ -51,6 +51,12 @@
       <form id="boardForm" class="board-form" method="post" target="boardSubmitFrame">
         <input type="hidden" name="mode" value="post">
         <input type="hidden" name="clientId" id="boardClientId" value="">
+        <input type="hidden" name="replyTo" id="boardReplyTo" value="">
+
+        <div id="boardReplyNotice" class="board-reply-notice" hidden>
+          <span id="boardReplyNoticeText"></span>
+          <button type="button" id="boardReplyCancel" class="board-reply-cancel">返信をやめる</button>
+        </div>
 
         <div class="board-form-grid">
           <label>

@@ -1,0 +1,21 @@
+返信機能アップデート
+
+GitHubで上書き:
+- board.html
+- board.css
+- board.js
+
+Google Apps Script:
+- 現在の Code.gs を BoardCode.gs の内容で置き換える
+- 保存後、Webアプリを「新バージョン」で再デプロイする
+
+既存 board シートは削除不要です。
+旧形式ならGASが自動で replyTo 列を追加します。
+
+返信投稿も status=pending で保存されます。
+管理者が status を published にすると公開されます。
+
+公開後:
+- 親投稿の下にインデント表示
+- 「↳ No.X への返信」と表示
+- 返信への返信も可能
