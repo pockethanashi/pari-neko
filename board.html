@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>みんなの猫好き掲示板｜やっぱり猫が好き 非公式ファンサイト</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="board.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-small">UNOFFICIAL FAN SITE</span>
+      <span class="logo-main">やっぱり猫が好き</span>
+    </a>
+    <button class="menu-button" aria-label="メニューを開く">☰</button>
+    <nav class="global-nav">
+      <a href="about-show.html">番組を振り返る</a>
+      <a href="episodes.html">エピソード</a>
+      <a href="fanfiction.html">勝手に猫が好き</a>
+      <a class="active" href="board.html">掲示板</a>
+      <a href="about.html">このサイトについて</a>
+    </nav>
+  </header>
+
+  <main class="page-width board-page">
+    <section class="page-title board-title">
+      <p class="eyebrow">COMMUNITY BOARD</p>
+      <h1>みんなの猫好き掲示板</h1>
+      <p>
+        「やっぱり猫が好き」のこと、好きな回や登場人物のこと、
+        「勝手に猫が好き」の感想など。ファンの皆さまと話せる掲示板です。お気軽にご参加ください。
+      </p>
+    </section>
+
+    <section class="board-notice">
+      <strong>投稿について</strong>
+      <p>
+        投稿は管理人確認後に掲載されます。個人情報・誹謗中傷・宣伝目的の投稿などは掲載しない場合がありますのでご了承ください。
+      </p>
+    </section>
+
+    <section class="board-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">POST</p>
+          <h2>書き込む</h2>
+        </div>
+      </div>
+
+      <form id="boardForm" class="board-form" method="post" target="boardSubmitFrame">
+        <input type="hidden" name="mode" value="post">
+        <input type="hidden" name="clientId" id="boardClientId" value="">
+
+        <div class="board-form-grid">
+          <label>
+            <span>お名前 <small>（任意）</small></span>
+            <input type="text" name="name" maxlength="30" placeholder="名無しの猫好き">
+          </label>
+
+          <label>
+            <span>話題</span>
+            <select name="category" required>
+              <option value="雑談">雑談</option>
+              <option value="好きな回">好きな回</option>
+              <option value="好きな登場人物">好きな登場人物</option>
+              <option value="勝手に猫が好き感想">勝手に猫が好き感想</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>タイトル</span>
+          <input type="text" name="title" maxlength="80" required placeholder="例：最近また見返しています">
+        </label>
+
+        <label>
+          <span>本文</span>
+          <textarea name="body" rows="7" maxlength="1500" required placeholder="猫好きのみなさんへ、ひとことどうぞ。"></textarea>
+        </label>
+
+        <!-- bot対策用。人には見えません -->
+        <label class="board-honeypot" aria-hidden="true">
+          <span>Website</span>
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+
+        <div class="board-submit-row">
+          <button type="submit" class="button button-primary" id="boardSubmitButton">投稿する</button>
+          <p id="boardSubmitStatus" class="board-submit-status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <iframe name="boardSubmitFrame" id="boardSubmitFrame" class="board-submit-frame" title="投稿送信先"></iframe>
+    </section>
+
+    <section class="board-section">
+      <div class="section-heading board-list-heading">
+        <div>
+          <p class="eyebrow">BOARD</p>
+          <h2>みんなの書き込み</h2>
+        </div>
+      </div>
+
+      <div class="filter-bar" id="boardFilters">
+        <button type="button" class="filter active" data-filter="all">すべて</button>
+        <button type="button" class="filter" data-filter="雑談">雑談</button>
+        <button type="button" class="filter" data-filter="好きな回">好きな回</button>
+        <button type="button" class="filter" data-filter="好きな登場人物">好きな登場人物</button>
+        <button type="button" class="filter" data-filter="勝手に猫が好き感想">勝手に猫が好き感想</button>
+      </div>
+
+      <div id="boardStatus" class="loading-message">読み込み中...</div>
+      <div id="boardList" class="board-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>みんなの猫好き掲示板 / 投稿は管理人確認後に掲載されます。</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="board-config.js"></script>
+  <script src="script.js"></script>
+  <script src="board.js"></script>
+</body>
+</html>

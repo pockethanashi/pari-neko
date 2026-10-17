@@ -1,0 +1,195 @@
+/* ========================================
+   みんなの猫好き掲示板
+   ======================================== */
+
+.board-page {
+  max-width: 960px;
+}
+
+.board-title {
+  margin-bottom: 34px;
+}
+
+.board-notice {
+  margin-bottom: 58px;
+  padding: 18px 22px;
+  border-left: 5px solid var(--mustard);
+  background: rgba(255, 253, 248, .65);
+  font-size: .9rem;
+}
+
+.board-notice p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+.board-section {
+  margin-top: 68px;
+}
+
+.board-form {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, .78);
+  box-shadow: var(--shadow);
+}
+
+.board-form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.board-form label > span {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.board-form small {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.board-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.board-form input,
+.board-form select,
+.board-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 11px 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.5;
+}
+
+.board-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.board-form input:focus,
+.board-form select:focus,
+.board-form textarea:focus {
+  outline: 2px solid rgba(49, 92, 74, .18);
+  border-color: var(--green);
+}
+
+.board-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.board-submit-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.board-submit-frame {
+  display: none;
+}
+
+.board-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.board-list-heading {
+  margin-bottom: 18px;
+}
+
+.board-list {
+  border-top: 1px solid var(--ink);
+}
+
+.board-post {
+  padding: 28px 6px 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.board-post-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 7px;
+}
+
+.board-post-no {
+  color: var(--red);
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.board-post-category {
+  display: inline-flex;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--green);
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.board-post-date {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.board-post h3 {
+  margin: 5px 0 8px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.35rem;
+}
+
+.board-post-meta {
+  margin: 0 0 13px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.board-post-body {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: "Noto Serif JP", serif;
+  line-height: 1.9;
+}
+
+.board-empty {
+  padding: 42px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .board-form {
+    padding: 22px 18px;
+  }
+
+  .board-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .board-post-date {
+    width: 100%;
+    margin-left: 0;
+  }
+}
