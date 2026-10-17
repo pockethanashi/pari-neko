@@ -26,18 +26,38 @@
   <main class="page-width board-page">
     <section class="page-title board-title">
       <p class="eyebrow">COMMUNITY BOARD</p>
-      <h1>みんなの猫好き掲示板</h1>
+      <h1>「ぱり猫」好きの掲示板</h1>
       <p>
         「やっぱり猫が好き」のこと、好きな回や登場人物のこと、
-        「勝手に猫が好き」の感想など。のんびり話せる掲示板です。
+        「勝手に猫が好き」の感想など。ファンの皆さんが交流する掲示板です。お気軽にご参加ください<=^^=>
       </p>
     </section>
 
     <section class="board-notice">
       <strong>投稿について</strong>
       <p>
-        投稿は管理人確認後に掲載されます。個人情報・誹謗中傷・宣伝目的の投稿などは掲載しない場合があります。
+        投稿は管理人確認後に掲載されます。個人情報・誹謗中傷・宣伝目的の投稿などは掲載しない場合がありますのでご承知おきください。
       </p>
+    </section>
+
+    <section class="board-section">
+      <div class="section-heading board-list-heading">
+        <div>
+          <p class="eyebrow">BOARD</p>
+          <h2>みんなの書き込み</h2>
+        </div>
+      </div>
+
+      <div class="filter-bar" id="boardFilters">
+        <button type="button" class="filter active" data-filter="all">すべて</button>
+        <button type="button" class="filter" data-filter="雑談">雑談</button>
+        <button type="button" class="filter" data-filter="好きな回">好きな回</button>
+        <button type="button" class="filter" data-filter="好きな登場人物">好きな登場人物</button>
+        <button type="button" class="filter" data-filter="勝手に猫が好き感想">勝手に猫が好き感想</button>
+      </div>
+
+      <div id="boardStatus" class="loading-message">読み込み中...</div>
+      <div id="boardList" class="board-list"></div>
     </section>
 
     <section class="board-section">
@@ -98,26 +118,6 @@
       </form>
 
       <iframe name="boardSubmitFrame" id="boardSubmitFrame" class="board-submit-frame" title="投稿送信先"></iframe>
-    </section>
-
-    <section class="board-section">
-      <div class="section-heading board-list-heading">
-        <div>
-          <p class="eyebrow">BOARD</p>
-          <h2>みんなの書き込み</h2>
-        </div>
-      </div>
-
-      <div class="filter-bar" id="boardFilters">
-        <button type="button" class="filter active" data-filter="all">すべて</button>
-        <button type="button" class="filter" data-filter="雑談">雑談</button>
-        <button type="button" class="filter" data-filter="好きな回">好きな回</button>
-        <button type="button" class="filter" data-filter="好きな登場人物">好きな登場人物</button>
-        <button type="button" class="filter" data-filter="勝手に猫が好き感想">勝手に猫が好き感想</button>
-      </div>
-
-      <div id="boardStatus" class="loading-message">読み込み中...</div>
-      <div id="boardList" class="board-list"></div>
     </section>
   </main>
 
