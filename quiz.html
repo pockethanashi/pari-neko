@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猫好きクイズ｜やっぱり猫が好き 非公式ファンサイト</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-small">UNOFFICIAL FAN SITE</span>
+      <span class="logo-main">やっぱり猫が好き</span>
+    </a>
+    <button class="menu-button" aria-label="メニューを開く">☰</button>
+    <nav class="global-nav">
+      <a href="about-show.html">番組を振り返る</a>
+      <a href="episodes.html">エピソード</a>
+      <a href="fanfiction.html">勝手に猫が好き</a>
+      <a class="active" href="quiz.html">ぱり猫クイズ</a>
+      <a href="board.html">掲示板</a>
+      <a href="about.html">このサイトについて</a>
+    </nav>
+  </header>
+
+  <main class="page-width quiz-page">
+    <section class="page-title quiz-page-title">
+      <p class="eyebrow">NEKO QUIZ</p>
+      <h1>ぱり猫クイズ</h1>
+      <p>
+        あなたはどれくらい「やっぱり猫が好き」？
+        三姉妹やエピソードにまつわる3択クイズに挑戦。
+      </p>
+    </section>
+
+    <section id="quizLoading" class="quiz-loading">
+      クイズを読み込んでいます…
+    </section>
+
+    <section id="quizError" class="quiz-error" hidden>
+      <h2>クイズを読み込めませんでした</h2>
+      <p id="quizErrorMessage"></p>
+    </section>
+
+    <section id="quizStart" class="quiz-panel quiz-start" hidden>
+      <p class="quiz-tv-label">LET'S CHALLENGE!</p>
+      <h2>全<span id="quizQuestionCount">10</span>問</h2>
+      <p>
+        登録されている問題からランダムに出題します。<br>
+        回答すると、その場で正解と解説が表示されます。
+      </p>
+      <button id="quizStartButton" class="button button-primary quiz-main-button" type="button">
+        クイズをはじめる
+      </button>
+    </section>
+
+    <section id="quizGame" class="quiz-panel" hidden>
+      <div class="quiz-progress-head">
+        <span id="quizProgressText">QUESTION 01 / 10</span>
+        <span id="quizScoreMini">0 correct</span>
+      </div>
+
+      <div class="quiz-progress-bar" aria-hidden="true">
+        <span id="quizProgressBar"></span>
+      </div>
+
+      <div class="quiz-meta-row">
+        <span id="quizCategory" class="quiz-chip"></span>
+        <span id="quizDifficulty" class="quiz-chip quiz-chip-muted"></span>
+      </div>
+
+      <h2 id="quizQuestion" class="quiz-question"></h2>
+
+      <div id="quizChoices" class="quiz-choices"></div>
+
+      <div id="quizFeedback" class="quiz-feedback" hidden>
+        <p id="quizFeedbackMark" class="quiz-feedback-mark"></p>
+        <p id="quizCorrectAnswer" class="quiz-correct-answer"></p>
+        <p id="quizExplanation" class="quiz-explanation"></p>
+        <button id="quizNextButton" class="button button-primary quiz-next-button" type="button">
+          次の問題へ →
+        </button>
+      </div>
+    </section>
+
+    <section id="quizResult" class="quiz-panel quiz-result" hidden>
+      <p class="quiz-tv-label">RESULT</p>
+      <h2 id="quizResultTitle">三姉妹通</h2>
+      <p class="quiz-result-score">
+        <strong id="quizResultCorrect">0</strong>
+        <span>/</span>
+        <span id="quizResultTotal">10</span>
+      </p>
+      <p id="quizResultPercent" class="quiz-result-percent">正解率 0%</p>
+      <p id="quizResultMessage" class="quiz-result-message"></p>
+
+      <div class="quiz-result-actions">
+        <button id="quizRetryButton" class="button button-primary" type="button">
+          もう一度挑戦
+        </button>
+        <a href="board.html" class="button button-secondary">掲示板へ行く</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>猫好きクイズ / 非公式ファンサイト</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

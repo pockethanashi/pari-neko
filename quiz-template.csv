@@ -1,0 +1,4 @@
+id,question,choiceA,choiceB,choiceC,answer,explanation,category,difficulty,published
+1,ここに問題文を入力,選択肢A,選択肢B,選択肢C,A,ここに正解の解説を入力,登場人物,easy,FALSE
+2,ここに2問目の問題文を入力,選択肢A,選択肢B,選択肢C,B,ここに正解の解説を入力,エピソード,normal,FALSE
+3,ここに3問目の問題文を入力,選択肢A,選択肢B,選択肢C,C,ここに正解の解説を入力,マニア,hard,FALSE
