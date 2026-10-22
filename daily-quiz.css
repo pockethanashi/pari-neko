@@ -1,0 +1,56 @@
+/* 今日の猫好きクイズ */
+.daily-quiz-section { margin-top: 90px; }
+.daily-quiz-card {
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-top: 7px solid var(--mustard);
+  background: rgba(255, 253, 248, .82);
+  box-shadow: var(--shadow);
+}
+.daily-quiz-head {
+  display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-bottom: 22px;
+}
+.daily-quiz-head h2 {
+  margin: 0; font-family: "Noto Serif JP", serif; font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+.daily-quiz-link { white-space: nowrap; color: var(--red); font-size: .86rem; font-weight: 700; }
+.daily-quiz-loading, .daily-quiz-error { padding: 18px 0; color: var(--muted); }
+.daily-quiz-category {
+  display: inline-flex; margin-bottom: 14px; padding: 4px 10px;
+  border: 1px solid rgba(49, 92, 74, .25); border-radius: 999px;
+  background: rgba(49, 92, 74, .08); color: var(--green); font-size: .72rem; font-weight: 700;
+}
+.daily-quiz-question {
+  margin: 0 0 22px; font-family: "Noto Serif JP", serif;
+  font-size: clamp(1.35rem, 3vw, 2rem); line-height: 1.65;
+}
+.daily-quiz-choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.daily-quiz-choice {
+  min-height: 72px; display: grid; grid-template-columns: 42px 1fr; align-items: center;
+  gap: 9px; padding: 10px 14px 10px 10px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--white); color: var(--ink); text-align: left; cursor: pointer; transition: .15s ease;
+}
+.daily-quiz-choice:hover:not(:disabled) { transform: translateY(-1px); border-color: var(--green); }
+.daily-quiz-choice:disabled { cursor: default; }
+.daily-quiz-letter {
+  width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--green); color: white; font-family: "Noto Serif JP", serif; font-weight: 700;
+}
+.daily-quiz-choice.is-correct { border-color: var(--green); background: rgba(49, 92, 74, .09); }
+.daily-quiz-choice.is-wrong { border-color: var(--red); background: rgba(154, 59, 50, .07); }
+.daily-quiz-choice.is-wrong .daily-quiz-letter { background: var(--red); }
+.daily-quiz-feedback { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+.daily-quiz-feedback-result {
+  margin: 0 0 2px; font-family: "Noto Serif JP", serif; font-size: 1.45rem; font-weight: 700;
+}
+.daily-quiz-feedback.is-correct .daily-quiz-feedback-result { color: var(--green); }
+.daily-quiz-feedback.is-wrong .daily-quiz-feedback-result { color: var(--red); }
+.daily-quiz-answer { margin: 0 0 10px; font-weight: 700; }
+.daily-quiz-explanation { margin: 0; color: var(--muted); white-space: pre-wrap; }
+
+@media (max-width: 720px) {
+  .daily-quiz-card { padding: 26px 20px; }
+  .daily-quiz-head { display: block; }
+  .daily-quiz-link { display: inline-block; margin-top: 7px; }
+  .daily-quiz-choices { grid-template-columns: 1fr; }
+}

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>やっぱり猫が好き｜非公式ファンサイト</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="daily-quiz.css">
 </head>
 <body>
   <header class="site-header">
@@ -56,6 +57,35 @@
       
     </section>
 
+    <section id="dailyQuizSection" class="page-width daily-quiz-section">
+      <div class="daily-quiz-card">
+        <div class="daily-quiz-head">
+          <div>
+            <p class="eyebrow">TODAY'S QUIZ</p>
+            <h2>今日の猫好きクイズ</h2>
+          </div>
+          <a href="quiz.html" class="daily-quiz-link">もっと挑戦する →</a>
+        </div>
+
+        <div id="dailyQuizLoading" class="daily-quiz-loading">今日の1問を読み込んでいます…</div>
+        <div id="dailyQuizError" class="daily-quiz-error" hidden></div>
+
+        <div id="dailyQuizBody" hidden>
+          <span id="dailyQuizCategory" class="daily-quiz-category"></span>
+          <h3 id="dailyQuizQuestion" class="daily-quiz-question"></h3>
+          <div id="dailyQuizChoices" class="daily-quiz-choices"></div>
+
+          <div id="dailyQuizFeedback" class="daily-quiz-feedback" hidden>
+            <p id="dailyQuizResult" class="daily-quiz-feedback-result"></p>
+            <p id="dailyQuizAnswer" class="daily-quiz-answer"></p>
+            <p id="dailyQuizExplanation" class="daily-quiz-explanation"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <section class="two-paths page-width">
       <article class="feature-card original">
         <p class="card-kicker">ORIGINAL</p>
@@ -83,6 +113,7 @@
         </ul>
       </article>
     </section>
+    
 
     <section class="page-width section-block">
       <div class="section-heading">
@@ -145,6 +176,6 @@
     <p>番組・出演者・制作会社等とは関係ありません。</p>
   </footer>
 
-  <script src="config.js"></script><script src="data.js"></script><script src="script.js"></script>
+  <script src="config.js"></script><script src="daily-quiz.js"></script><script src="data.js"></script><script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+今日の猫好きクイズ セットアップ
+
+1. daily-quiz.js と daily-quiz.css をGitHubのルートへ追加
+2. index.html の <head> に
+   <link rel="stylesheet" href="daily-quiz.css">
+   を追加
+3. DAILY_QUIZ_INDEX_SNIPPET.html の section をトップページへ追加
+   おすすめ位置は ORIGINAL / FAN FICTION の2枚カードの後
+4. index.html の末尾で config.js 読み込み後に
+   <script src="daily-quiz.js"></script>
+   を追加
+
+既存の quiz シートをそのまま使用します。
+published=TRUE の問題の中から、日本時間の日付で1問を固定選択します。
+同じ日はリロードしても同じ問題、翌日になると自動的に次の問題へ切り替わります。
+quiz.js / quiz.html / config.js の変更は不要です。
