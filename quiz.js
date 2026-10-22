@@ -212,12 +212,12 @@ function getQuizRank(correct, total) {
   if (ratio === 1) {
     return {
       title: "もう四姉妹です",
-      message: "全問正解！ 丸井家の居間にいても、たぶん普通になじめます。"
+      message: "全問正解！ 恩田家の居間にいても、たぶん普通になじめます。"
     };
   }
   if (ratio >= .9) {
     return {
-      title: "丸井家常連",
+      title: "恩田家常連",
       message: "かなりの猫好き。あと一歩で完全制覇です。"
     };
   }
