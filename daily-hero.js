@@ -15,10 +15,9 @@ function initDailyHero() {
    * 「最初の _ より後ろ」をキャプションとして表示します。
    */
   const images = [
-    "images/hero/hero01_三姉妹と猫のいる、いつもの部屋.jpg",
-    "images/hero/hero02_今日も何かが始まりそう.jpg",
-    "images/hero/hero03_静かな夜ほど、だいたい静かじゃない.jpg",
-    "images/hero/hero04_三姉妹の一日は、今日もにぎやか.jpg"
+    "images/hero/hero01_今年は真面目に.png",
+    "images/hero/hero02_赤い股引履いたサンタクロースが・・・.png",
+
   ];
 
   if (!images.length) return;
