@@ -40,14 +40,18 @@
         </div>
       </div>
      
-      <div class="hero-visual">
+      <div class="hero-visual"> 
        <div class="hero-photo-frame">
-        <img
-         src="images/top.png"
-         alt="やっぱり猫が好きのワンシーン"
-         class="hero-photo"
-        >
+         <img
+           id="dailyHeroImage"
+           src="images/hero/hero01_三姉妹と猫のいる、いつもの部屋.jpg"
+           alt="やっぱり猫が好き 非公式ファンサイト メインビジュアル"
+           class="hero-photo"
+         >
        </div>
+
+       <p id="dailyHeroCaption" class="visual-caption"></p>
+       
        <div class="hero-counter" aria-live="polite">
         <span class="hero-counter-label">YOU ARE CAT LOVER No.</span>
         <strong id="accessCount" class="hero-counter-number loading">Loading…</strong>
@@ -146,6 +150,13 @@
         </div>
       </div>
       <div class="latest-list">
+        <a href="quiz.html">
+          <time>2026.10.23</time>
+          <span class="tag">ぱり猫クイズ</span>
+          <strong>ぱり猫クイズを始めました</strong>
+        </a>
+
+
         <a href="board.html">
           <time>2026.10.17</time>
           <span class="tag">掲示板</span>
@@ -177,5 +188,6 @@
   </footer>
 
   <script src="config.js"></script><script src="daily-quiz.js"></script><script src="data.js"></script><script src="script.js"></script>
+  <script src="daily-hero.js"></script>
 </body>
 </html>
