@@ -572,8 +572,8 @@ button { font: inherit; }
 
 .fanfic-title-image {
   display: block;
-  width: clamp(100px, 15vw, 190px);
-  max-height: 190px;
+  width: clamp(140px, 22vw, 280px);
+  max-height: 280px;
   height: auto;
   object-fit: contain;
 }
@@ -1087,7 +1087,7 @@ button { font: inherit; }
   }
 
   .fanfic-title-image {
-    width: 110px;
-    max-height: 130px;
+    width: 150px;
+    max-height: 170px;
   }
 }
