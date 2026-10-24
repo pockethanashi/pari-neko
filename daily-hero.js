@@ -17,7 +17,15 @@ function initDailyHero() {
   const images = [
     "images/hero/hero01_今年は真面目に.png",
     "images/hero/hero02_赤い股引履いたサンタクロースが・・・.png",
-
+    "images/hero/hero03_昔のダンサー走りで逃げてきたのよ！.png",
+    "images/hero/hero04_ちょこざいめ！ちょこざいめ！ちょこざいめ！.png",
+    "images/hero/hero05_Thank you Happpy BirthDay  Thank you.png",
+    "images/hero/hero06_あ、きみちゃん流れ星.png",
+    "images/hero/hero07_ビーバ ブラジ～ル.png",
+    "images/hero/hero08_ペペちゃんがコーヒーに！.png",
+    "images/hero/hero09_叩っ切ってやる！.png",
+    "images/hero/hero10_1500円の肉がぁ・・・.png",
+    "images/hero/hero11_見てなさい、餃子はこう作るのよ.png"
   ];
 
   if (!images.length) return;
