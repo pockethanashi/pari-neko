@@ -18,30 +18,139 @@ function escapeHtml(value="") {
 }
 
 async function initEpisodes() {
-  const grid = document.getElementById("episodeGrid");
-  if (!grid) return;
+  const container = document.getElementById("episodeSeriesContainer");
+  if (!container) return;
+
   const status = document.getElementById("episodeStatus");
   const filters = document.getElementById("episodeFilters");
+
+  const seriesOrder = [
+    { key: "浦安編", id: "urayasu", en: "URAYASU" },
+    { key: "幕張編", id: "makuhari", en: "MAKUHARI" },
+    { key: "新猫編", id: "shin-neko", en: "SHIN NEKO" }
+  ];
+
   try {
     const episodes = await NeckoData.getEpisodes();
-    const allTags = [...new Set(episodes.flatMap(e => String(e.tags||"").split(/[,、]/).map(t=>t.trim()).filter(Boolean)))];
-    allTags.forEach(tag => filters.insertAdjacentHTML("beforeend", `<button class="filter" data-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`));
-    grid.innerHTML = episodes.map(e => {
-      const tags = String(e.tags||"").split(/[,、]/).map(t=>t.trim()).filter(Boolean);
+
+    const allTags = [...new Set(
+      episodes.flatMap(e =>
+        String(e.tags || "")
+          .split(/[,、]/)
+          .map(t => t.trim())
+          .filter(Boolean)
+      )
+    )];
+
+    allTags.forEach(tag => {
+      filters.insertAdjacentHTML(
+        "beforeend",
+        `<button class="filter" data-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`
+      );
+    });
+
+    const renderCard = e => {
+      const tags = String(e.tags || "")
+        .split(/[,、]/)
+        .map(t => t.trim())
+        .filter(Boolean);
+
       return `<article class="episode-card" data-tags="${escapeHtml(tags.join("|"))}">
         <p class="episode-meta">${escapeHtml(e.year || "")}${e.id ? ` / #${escapeHtml(e.id)}` : ""}</p>
-        <h2>${escapeHtml(e.title)}</h2><p>${escapeHtml(e.summary)}</p>
+        <h2>${escapeHtml(e.title)}</h2>
+        <p>${escapeHtml(e.summary)}</p>
         ${e.comment ? `<p class="episode-comment">${escapeHtml(e.comment)}</p>` : ""}
-        <div class="tags">${tags.map(t=>`<span>#${escapeHtml(t)}</span>`).join("")}</div></article>`;
+        <div class="tags">${tags.map(t => `<span>#${escapeHtml(t)}</span>`).join("")}</div>
+      </article>`;
+    };
+
+    container.innerHTML = seriesOrder.map(series => {
+      const items = episodes.filter(
+        e => String(e.series || "").trim() === series.key
+      );
+
+      return `<section class="episode-series" id="${series.id}">
+        <div class="episode-series-heading">
+          <p class="eyebrow">${series.en}</p>
+          <h2>${series.key}</h2>
+          <p class="episode-series-count">${items.length}話</p>
+        </div>
+
+        <div class="episode-grid">
+          ${items.map(renderCard).join("")}
+        </div>
+
+        ${items.length
+          ? ""
+          : `<p class="episode-series-empty">このシリーズの公開中エピソードはありません。</p>`}
+      </section>`;
     }).join("");
-    status.textContent = episodes.length ? (NeckoData.isConfigured() ? `${episodes.length}件を表示しています` : "サンプルデータを表示中（config.js にスプレッドシートIDを設定してください）") : "公開中のエピソードはありません。";
+
+    const uncategorized = episodes.filter(
+      e => !seriesOrder.some(
+        series => String(e.series || "").trim() === series.key
+      )
+    );
+
+    if (uncategorized.length) {
+      container.insertAdjacentHTML(
+        "beforeend",
+        `<section class="episode-series episode-series-uncategorized" id="other">
+          <div class="episode-series-heading">
+            <p class="eyebrow">OTHER</p>
+            <h2>未分類</h2>
+            <p class="episode-series-count">${uncategorized.length}話</p>
+          </div>
+
+          <div class="episode-grid">
+            ${uncategorized.map(renderCard).join("")}
+          </div>
+        </section>`
+      );
+    }
+
+    status.textContent = episodes.length
+      ? (
+          NeckoData.isConfigured()
+            ? `${episodes.length}件を表示しています`
+            : "サンプルデータを表示中（config.js にスプレッドシートIDを設定してください）"
+        )
+      : "公開中のエピソードはありません。";
+
     filters.addEventListener("click", e => {
-      const btn = e.target.closest(".filter"); if (!btn) return;
-      filters.querySelectorAll(".filter").forEach(b=>b.classList.remove("active")); btn.classList.add("active");
+      const btn = e.target.closest(".filter");
+      if (!btn) return;
+
+      filters.querySelectorAll(".filter").forEach(b => {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+
       const target = btn.dataset.filter;
-      grid.querySelectorAll(".episode-card").forEach(card => card.style.display = target === "all" || card.dataset.tags.split("|").includes(target) ? "" : "none");
+
+      container.querySelectorAll(".episode-series").forEach(section => {
+        let visibleCount = 0;
+
+        section.querySelectorAll(".episode-card").forEach(card => {
+          const visible =
+            target === "all" ||
+            card.dataset.tags.split("|").includes(target);
+
+          card.style.display = visible ? "" : "none";
+          if (visible) visibleCount++;
+        });
+
+        section.classList.toggle(
+          "is-empty-by-filter",
+          visibleCount === 0
+        );
+      });
     });
-  } catch (err) { status.textContent = `読み込みエラー：${err.message}`; }
+
+  } catch (err) {
+    console.error("Episode load error:", err);
+    status.textContent = `読み込みエラー：${err.message}`;
+  }
 }
 
 async function initStoryList() {
