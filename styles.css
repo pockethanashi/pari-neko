@@ -548,7 +548,7 @@ button { font: inherit; }
   margin-top: 40px;
   background: var(--green);
   color: #f8f2e7;
-  padding: 80px 0;
+  padding: 52px 0;
 }
 
 .fanfic-hero .eyebrow { color: #e4c990; }
@@ -575,6 +575,8 @@ button { font: inherit; }
 
 .fanfic-hero-description {
   margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.9;
 }
 
 .fanfic-title-illustration {
