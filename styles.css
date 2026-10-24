@@ -1127,3 +1127,73 @@ button { font: inherit; }
     max-height: 180px;
   }
 }
+
+
+/* 勝手に猫が好き：スマホ・タブレット時の説明文＋イラスト横並び */
+@media (max-width: 860px) {
+  .fanfic-hero {
+    padding: 46px 0;
+  }
+
+  .fanfic-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(2.7rem, 11vw, 4rem);
+  }
+
+  .fanfic-hero-mobile-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .fanfic-hero-description {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-size: .88rem;
+    line-height: 1.75;
+  }
+
+  .fanfic-title-illustration {
+    flex: 0 0 140px;
+    width: 140px;
+    margin: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fanfic-title-image {
+    display: block;
+    width: 140px;
+    max-width: 100%;
+    max-height: 180px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 400px) {
+  .fanfic-hero-mobile-row {
+    gap: 10px;
+  }
+
+  .fanfic-hero-description {
+    font-size: .82rem;
+    line-height: 1.7;
+  }
+
+  .fanfic-title-illustration {
+    flex-basis: 120px;
+    width: 120px;
+  }
+
+  .fanfic-title-image {
+    width: 120px;
+    max-height: 160px;
+  }
+}
