@@ -1,8 +1,8 @@
 (function () {
   const demoEpisodes = [
-    { id:"1", year:"1988", title:"どうでもいいことで揉める夜", summary:"話の発端は些細なこと。なのに気づけば全員、本気になっている。", tags:"ケンカ回,暴走回", comment:"会話がどんどん脱線していく回。", published:"TRUE", sortOrder:"1" },
-    { id:"2", year:"1988", title:"食卓から始まる大騒ぎ", summary:"食べ物の話をしていただけなのに、なぜそこまで話が広がるのか。", tags:"食べ物回", comment:"食卓もののサンプル。", published:"TRUE", sortOrder:"2" },
-    { id:"3", year:"1989", title:"来客ひとりで部屋が変わる", summary:"いつもの三人に誰か一人増えるだけで、会話のリズムまで変わる。", tags:"来客回,暴走回", comment:"来客回のサンプル。", published:"TRUE", sortOrder:"3" }
+    { id:"1", year:"1988", series:"浦安編", title:"どうでもいいことで揉める夜", summary:"話の発端は些細なこと。なのに気づけば全員、本気になっている。", tags:"ケンカ回,暴走回", comment:"会話がどんどん脱線していく回。", published:"TRUE", sortOrder:"1" },
+    { id:"2", year:"1988", series:"幕張編", title:"食卓から始まる大騒ぎ", summary:"食べ物の話をしていただけなのに、なぜそこまで話が広がるのか。", tags:"食べ物回", comment:"食卓もののサンプル。", published:"TRUE", sortOrder:"2" },
+    { id:"3", year:"1989", series:"新猫編", title:"来客ひとりで部屋が変わる", summary:"いつもの三人に誰か一人増えるだけで、会話のリズムまで変わる。", tags:"来客回,暴走回", comment:"来客回のサンプル。", published:"TRUE", sortOrder:"3" }
   ];
 
   const demoStories = [
