@@ -56,7 +56,7 @@ async function initEpisodes() {
         .filter(Boolean);
 
       return `<article class="episode-card" data-tags="${escapeHtml(tags.join("|"))}">
-        <p class="episode-meta">${escapeHtml(e.year || "")}${e.id ? ` / #${escapeHtml(e.id)}` : ""}</p>
+        <p class="episode-meta">${escapeHtml(e.year || "")}</p>
         <h2>${escapeHtml(e.title)}</h2>
         <p>${escapeHtml(e.summary)}</p>
         ${e.comment ? `<p class="episode-comment">${escapeHtml(e.comment)}</p>` : ""}
