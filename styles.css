@@ -564,10 +564,18 @@ button { font: inherit; }
   font-size: clamp(3rem, 7vw, 6.2rem);
 }
 
-.cat-mark {
-  font-family: "Noto Serif JP", serif;
-  font-size: clamp(2rem, 4vw, 4rem);
-  opacity: .85;
+.fanfic-title-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fanfic-title-image {
+  display: block;
+  width: clamp(100px, 15vw, 190px);
+  max-height: 190px;
+  height: auto;
+  object-fit: contain;
 }
 
 .fanfic-characters { grid-template-columns: repeat(4, 1fr); }
@@ -1069,5 +1077,17 @@ button { font: inherit; }
   .episode-series-count {
     position: static;
     margin-top: 6px;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .fanfic-title-illustration {
+    margin-top: 8px;
+  }
+
+  .fanfic-title-image {
+    width: 110px;
+    max-height: 130px;
   }
 }
