@@ -26,7 +26,8 @@ function initDailyHero() {
     "images/hero/hero09_叩っ切ってやる！.png",
     "images/hero/hero10_1500円の肉がぁ・・・.png",
     "images/hero/hero11_見てなさい、餃子はこう作るのよ.png",
-    "images/hero/hero12_先生、実験て大変ですね.png"
+    "images/hero/hero12_先生、実験て大変ですね.png",
+    "images/hero/hero13_石綿こげちゃった。体に悪いよ息止めて.png"
   ];
 
   if (!images.length) return;
