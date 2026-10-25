@@ -30,7 +30,8 @@ function initDailyHero() {
     "images/hero/hero13_石綿こげちゃった。体に悪いよ息止めて.png",
     "images/hero/hero14_ああっっちぅいいぃぃ！.png",
     "images/hero/hero15_アンニュイ焼肉１.png",
-    "images/hero/hero16_アンニュイ焼肉２.png"
+    "images/hero/hero16_アンニュイ焼肉２.png",
+    "images/hero/hero17_怒られたときは自分で自分の頬をぶつ.png"
   ];
 
   if (!images.length) return;
