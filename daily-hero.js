@@ -31,7 +31,11 @@ function initDailyHero() {
     "images/hero/hero14_ああっっちぅいいぃぃ！.png",
     "images/hero/hero15_アンニュイ焼肉１.png",
     "images/hero/hero16_アンニュイ焼肉２.png",
-    "images/hero/hero17_怒られたときは自分で自分の頬をぶつ.png"
+    "images/hero/hero17_怒られたときは自分で自分の頬をぶつ.png",
+    "images/hero/hero18_うるさいなぁああああ！！.png",
+    "images/hero/hero19_ほーしーのーふーらーめーんーこぉ～～.png",
+    "images/hero/hero20_滑ったぞー！ばかやろうー！.png",
+    "images/hero/hero21_タケノコ生えてるわよ.png"
   ];
 
   if (!images.length) return;
