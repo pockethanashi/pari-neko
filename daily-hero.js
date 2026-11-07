@@ -41,7 +41,21 @@ function initDailyHero() {
   if (!images.length) return;
 
   const dayNumber = getJapanDayNumber();
-  const src = images[dayNumber % images.length];
+
+  // 画像数ごとに「1巡」とする
+  const cycleLength = images.length;
+
+  // 現在が何巡目か
+  const cycleNumber = Math.floor(dayNumber / cycleLength);
+
+  // その巡回の何日目か
+  const dayInCycle = dayNumber % cycleLength;
+
+  // 巡回ごとに異なる順番へシャッフル
+  const shuffledImages = shuffleForCycle(images, cycleNumber);
+
+  // 一巡するまでは同じ画像を出さない
+  const src = shuffledImages[dayInCycle];
 
   image.src = src;
 
@@ -51,6 +65,45 @@ function initDailyHero() {
     caption.hidden = !text;
   }
 }
+
+
+/*
+ * 同じ巡回では必ず同じ並びになるシャッフル。
+ * そのため、
+ * ・同じ日はPCでもスマホでも同じ画像
+ * ・リロードしても画像は変わらない
+ * ・全画像を出し切るまで重複しない
+ * ・次の巡回では別の並びになる
+ */
+function shuffleForCycle(images, cycleNumber) {
+  const shuffled = [...images];
+
+  let seed = (cycleNumber + 1) * 2654435761;
+
+  function random() {
+    seed |= 0;
+    seed = (seed + 0x6D2B79F5) | 0;
+
+    let t = seed;
+
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+
+    [shuffled[i], shuffled[j]] = [
+      shuffled[j],
+      shuffled[i]
+    ];
+  }
+
+  return shuffled;
+}
+
 
 function getCaptionFromFilename(src) {
   const filename = src.split("/").pop() || "";
@@ -69,6 +122,7 @@ function getCaptionFromFilename(src) {
   return withoutExt.substring(underscoreIndex + 1);
 }
 
+
 function getJapanDayNumber() {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Tokyo",
@@ -77,7 +131,8 @@ function getJapanDayNumber() {
     day: "2-digit"
   }).formatToParts(new Date());
 
-  const get = type => parts.find(part => part.type === type)?.value;
+  const get = type =>
+    parts.find(part => part.type === type)?.value;
 
   const year = Number(get("year"));
   const month = Number(get("month"));
